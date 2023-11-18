@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-900 m-0 p-0">
+    <div class="container flex flex-col h-[100vh] w-[100vw] items-center justify-center">
+        <h1 class="font-medium text-xl text-yellow-50 font-mono p-4">Password Generator</h1>
+        <div id="input-div"><input placeholder="click on Generate button" class="txt h-6 w-80 px-2 py-5 rounded-lg">
+        </div>
+        <div id="btn-div" class="flex gap-3 mt-4">
+            <button id="generate-otp"
+                class="bg-violet-500 text-yellow-50 px-14 py-1 rounded-lg font-mono">Generate</button><button
+                class="btn bg-violet-500 text-yellow-50 px-5 py-1 rounded-lg font-mono">Copy To Clipboard</button>
+        </div>
+        <div
+            class="condition-container w-[30%] py-3 my-2 flex flex-col h-auto text-yellow-100 text-sm font-mono font-medium space-y-1">
+            <div class="h-auto  flex items-center justify-between">
+                <span id="passlen">Password length</span>
+                <div class="inline-block h-10 w-16 p-2 shadow-inner border border-slate-800 rounded-lg"
+                    id="password-length">12</div>
+            </div>
+            <div class="h-auto  flex items-center justify-between">
+                <span id="upperCase" class="">upperCase</span>
+                <input class="tick" type="checkbox" id="uptick" />
+            </div>
+            <div class="h-auto  flex items-center justify-between">
+                <span id="lowerCase">LowerCase</span>
+                <input class="tick" type="checkbox" id="lowtick" />
+            </div>
+            <div class="h-auto  flex items-center justify-between">
+                <span id="numbers">Numbers</span>
+                <input class="tick" type="checkbox" id="numtick" />
+            </div>
+            <div class="h-auto  flex items-center justify-between">
+                <span id="splChar">Special Characters</span>
+                <input class="tick" type="checkbox" id="spl" />
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let button = document.querySelector('.btn');
+        let text = document.querySelector('.txt');
+        let generateOtp = document.getElementById("generate-otp")
+        let upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let splChar = ['!', '@', '#', '$', '%', '^', '&', '*'];
+        let lower = []
+        upper.map((el, index) => {
+            lower.push(el.toLowerCase())
+        })
+        button.addEventListener('click', () => {
+            if (text.value == '') {
+                alert('invalid input')
+            }
+            else {
+                text.select();
+                document.execCommand('copy')
+            }
+        })
+        let uptick = document.getElementById("uptick")
+        let numtick = document.getElementById("numtick")
+        let spl = document.getElementById("spl")
+        let lowtick = document.getElementById("lowtick")
+
+
+        generateOtp.addEventListener('click', () => {
+            let crotp = []
+            let otp = ""
+            for (let i = 0; i <= 2; i++) {
+                crotp.push(upper[Math.floor(Math.random() * upper.length)], lower[Math.floor(Math.random() * lower.length)], splChar[Math.floor(Math.random() * splChar.length)], num[Math.floor(Math.random() * num.length)])
+            }
+
+            for (let i = 0; i <= 11; i++) {
+                otp += crotp[Math.floor(Math.random() * crotp.length)]
+            }
+            text.value = otp;
+            numtick.checked = true;
+            uptick.checked = true;
+            spl.checked = true;
+            lowtick.checked = true;
+
+        })
+
+    </script>
+</body>
+
+</html>

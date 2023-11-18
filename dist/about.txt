@@ -1,0 +1,29 @@
+About-
+In this I have written the code for generating the password and also providing a copy button,so that the user can easily copy the  password.
+
+Tech Stack Used:
+1.HTML
+2.Tailwind css
+3.Javascript
+
+Many things I have been been taken care while generating the password,for ensuring that the user must get the strong password which is almost impossible for anyone to predict or hack.
+
+Things that have been care of while generating the password are follows:
+
+1. The length of paswword is 12.
+2. Password contains uppercase letters like-A,B,C etc.
+3. Password contains lowercase letters like-a,b,c etc.
+4. Password contains integers like-1,2,3 etc.
+5. Password contains special characters like-!,#,$ etc.
+
+How to use?
+It is very easy to use,as its user interface is design keeping in mind the convenience of user to make it user friendly.
+
+You have to follow the follwing simple step for using it:
+
+step-1 Click on Generate button.
+Now, you can see the password in the box above the buttons that has been generated for you.
+step-2 Click on the Copy To Clipboard. 
+
+congrats, you have created the strong password successfully, Now you can paste the password where you want to use it.
+
